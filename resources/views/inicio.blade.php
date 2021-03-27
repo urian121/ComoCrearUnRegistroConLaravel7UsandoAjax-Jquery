@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link type="text/css" rel="shortcut icon" href="img/logo-mywebsite-urian-viera.svg"/>
-  <title>Como Crear Un Registro Con Laravel 7 Usando Ajax :: WebDeveloper Urian Viera</title>
+  <title>Como Crear Un Registro Con Laravel 7 Usando Ajax -Jquery :: WebDeveloper Urian Viera</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/cargando.css') }}">
@@ -54,22 +54,14 @@
 
 <div class="container mt-5 p-5">
 
-    <!--mensaje aqui ---->
-    <div class="col-lg-12" id="msj" style="display: none">
-        <div class="alert alert-success alert-success-style1 alert-success-stylenone">
-            <button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
-                <span class="icon-sc-cl" aria-hidden="true">&times;</span>
-            </button>
-            <span class="adminpro-icon adminpro-checked-pro admin-check-sucess admin-check-pro-none"></span>
-            <p class="message-alert-none" id="total"> </p>
-        </div>
-    </div>
+<!--mensaje aqui ---->
+@include('msjs')
 
 
 
 
   <h4 class="text-center">
-    Cómo Crear Un Registro Con Laravel 7 Usando Ajax 
+    Cómo Crear Un Registro Con Laravel 7 Usando Ajax y Jquery
     <img src="{{ asset('img/laravel.png') }}" alt="Logo"  style="width: 120px;">
   </h4>
   <hr>
@@ -154,7 +146,7 @@
         });
 
 
-    $("#btnEnviar").click(function(e){ 
+    $("#btnEnviarForm").click(function(e){ 
         e.preventDefault();  //evita recargar la pagina
 
         var route = $('#form-data').data('route');
@@ -169,7 +161,7 @@
             data:dataString,
             //data:formValues,
             success:function(Response){
-            $('#total').html(Response.mensaje);
+            $('#respuesta').html(Response.mensaje);
 
           var html = '';
          $(Response.boys).each(function(key, value) {
@@ -179,13 +171,14 @@
              '<td>' + value.sexo + '</td>' +
              '<td>' + value.fechaN + '</td>' +
              '</tr>';
-
             }); 
 
          $('#capaboys').html(html); 
             $("#form-data")[0].reset(); //limpiar Formulario
               
-            $("#msj").show(250);
+            $("#msj").show(250); //Mostrar el mensaje ya que por defecto esta Oculto
+
+            //Desaparecer el mensaje de Exito
             setTimeout(function () {
                 $("#msj").fadeOut(1500);
             }, 5000);

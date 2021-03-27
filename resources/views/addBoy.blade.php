@@ -41,7 +41,7 @@
         <div class="container mt-5">
           <div class="row">
             <div class="col text-center center-block">
-              <button class="btn btn-primary btn-lg btn-block" id="btnEnviar">Registrar Niño</button>
+              <button class="btn btn-primary btn-lg btn-block" id="btnEnviarForm">Registrar Niño</button>
             </div>
           </div>
         </div>
