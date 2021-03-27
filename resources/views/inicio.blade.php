@@ -113,7 +113,6 @@
                                      
                                 </tr>
                             </tbody>
-
                             @endforeach
                     </table>
 
@@ -161,6 +160,8 @@
             data:dataString,
             //data:formValues,
             success:function(Response){
+
+            $("#msj").show(250); //Mostrar el mensaje ya que por defecto esta Oculto
             $('#respuesta').html(Response.mensaje);
 
           var html = '';
@@ -174,10 +175,8 @@
             }); 
 
          $('#capaboys').html(html); 
-            $("#form-data")[0].reset(); //limpiar Formulario
+          $("#form-data")[0].reset(); //limpiar Formulario
               
-            $("#msj").show(250); //Mostrar el mensaje ya que por defecto esta Oculto
-
             //Desaparecer el mensaje de Exito
             setTimeout(function () {
                 $("#msj").fadeOut(1500);

@@ -15,6 +15,7 @@ public function inicio(){
 }
 
 
+
 public function boyData(Request $request){
         
         if($request->ajax()){
